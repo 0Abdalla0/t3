@@ -447,12 +447,12 @@ header .main-nav > li:hover .mega-menu {
     border: 1px solid var(--section-background);
     min-height: 650px;
 }
-.features .container .box img{
+.features .container .box .image{
     position: relative;
     max-width: 100%;
     z-index: -1;
 }
-.features .container .box img::before{
+.features .container .box .image::before{
     content: "";
     position: absolute;
     top: 50%;
@@ -460,8 +460,11 @@ header .main-nav > li:hover .mega-menu {
     transform: translate(-50%,-50%);
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0,1);
+    background-color: rgba(0, 0, 0,0.4);
     z-index: 2;
+}
+.features .container .box img{
+    max-width: 100%;
 }
 .features .box .text{
     text-align: center;
