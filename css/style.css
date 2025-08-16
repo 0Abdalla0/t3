@@ -1,11 +1,61 @@
 :root{
     --main-color: #2196f3;
     --main-color-alt: #1787e0;
+    --pColor:#777;
     --main-transition: 0.3s;
     --main-padding-top: 100px;
     --main-padding-bottom: 100px;
     --section-background: #ececec ;
 }
+/* *Components */
+.main-title{
+    position: relative;
+    text-transform: uppercase;
+    margin: 0 auto 80px;
+    padding: 10px;
+    width: fit-content;
+    font-size: 20px;
+    margin-top: 20px;
+    font-weight: bold;
+    border: 2px solid black;
+    z-index: 1;
+}
+.main-title:hover{
+    border: none;
+    color: white;
+    transition-delay: 0.3s;
+}
+.main-title::before,
+.main-title::after{
+    content: "";
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: var(--main-color);
+    top: 50%;
+    transform: translateY(-50%);
+    transition: all var(--main-transition) ease-in-out;
+}
+.main-title::before{
+    left: -20%;
+}
+.main-title:hover::before{
+    left: 0;
+}
+.main-title::after{
+    right: -20%;
+}
+.main-title:hover::after{
+    right: 0;
+}
+.main-title:hover::after,.main-title:hover:before{
+    width: 100%;
+    height: 100%;
+    border-radius: 0;
+    z-index: -1;
+}
+/* *End Components */
 /* !Start Global Rules */
 * {
     -webkit-box-sizing: border-box;
@@ -213,3 +263,147 @@ header .main-nav > li:hover .mega-menu {
 }
 /* End mega-menu */
 /* End header */
+/* Start Landing */
+.landing{
+    position: relative;
+}
+.landing::before{
+    content: "";
+    position: absolute;
+    top: -140px;
+    left: 0;
+    background-color: var(--section-background);
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    transform: skewY(-6deg);
+}
+.landing .container{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: calc(100vh - 100px);
+}
+.landing .container .text{
+    flex: 1;
+}
+.landing .container .text h2{
+    font-size: 48px;
+    font-weight: bold;
+}
+.landing .container .text p{
+    color: var(--pColor);
+    font-size: 20px;
+    line-height: 1.7;
+}
+@media(max-width:991px){
+.landing .container .text{
+    text-align: center;
+    font-size: 10px;
+}
+}
+.landing .container .image{
+    width: 50%;
+    animation: up-down 3s infinite;
+}
+@media(max-width:991px){
+.landing .container .image{
+    display: none;
+}
+}
+.landing .container .image img{
+    max-width: 100%;
+}
+.landing i{
+    color: var(--main-color);
+    position: absolute;
+    left: 50%;
+    bottom: 1%;
+    animation: bouncing 1.5s infinite;
+}
+.landing i:hover{
+    cursor: pointer;
+    color: var(--main-color-alt);
+}
+/* End Landing */
+/* Start Articles */
+.articles{
+    padding: var(--main-padding-top) 0 var(--main-padding-bottom);
+    position: relative;
+}
+.articles .container{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 40px;
+}
+.articles .container .box{
+    box-shadow: 0 0 10px rgba(114, 113, 113,0.4);
+    transition: all var(--main-transition);
+    border-radius: 6px;
+}
+.articles .container .box:hover{
+    transform: translateY(-20px);
+    box-shadow: 0 0 10px rgb(114, 113, 113);
+
+}
+.articles .container .image{
+    max-width: 100%;
+}   
+.articles .container .image img{
+    max-width: 100%;
+}
+.articles .container .text{
+    padding: 20px;
+}
+.articles .container .text h2{
+    margin-bottom: 20px;
+}
+.articles .container .text p{
+    line-height: 1.7 ;
+    color: var(--pColor);
+}
+.articles .container .end{
+    padding: 20px;
+    border-top: 1px solid var(--pColor);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.articles .container .end a,
+.articles .container .end i{
+    color: var(--main-color);
+    font-size:14px ;
+    font-weight: bold;
+}
+.articles .container .box:hover .end i{
+    animation: slide-right 1.5s infinite;
+}
+
+
+/* End Articles */
+/* !Animations */
+@keyframes up-down{
+    0%,100%{
+        transform: translateY(-10px);
+    }
+    50%{
+        transform: translateY(30px);
+    }
+}
+@keyframes bouncing{
+    0%,10%,20%,30%,50%,80%,90%,100%{
+        transform: translateY(0px);
+    }
+    40%,60%{
+        transform: translateY(10px);
+    }
+}
+@keyframes slide-right{
+    0%,100%{
+        transform: translateX(-5px);
+    }
+    50%{
+        transform: translateX(10px);
+    }
+}
+/* !End Animations */
