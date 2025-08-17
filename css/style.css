@@ -5,7 +5,7 @@
     --main-transition: 0.3s;
     --main-padding-top: 100px;
     --main-padding-bottom: 100px;
-    --section-background: #ececec ;
+    --section-background: rgb(236, 236, 236) ;
 }
 /* *Components */
 .main-title{
@@ -604,6 +604,167 @@ header .main-nav > li:hover .mega-menu {
     color: gold;
 }
 /* End testimonials */
+/* Start members */
+.members{
+    padding: var(--main-padding-top) 0 var(--main-padding-bottom);
+    position: relative;
+}
+.members .container{
+    display: grid;
+    grid-template-columns: repeat(auto-fill,minmax(300px,1fr));
+    gap: 40px;
+}
+.members .box{
+    position: relative;
+    padding: 30px;
+    transition: all var(--main-transition);
+}
+.members .box::before,.members .box::after{
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    border-radius:15px;
+    transition: all var(--main-transition);
+}
+.members .box::before{
+    width: calc(100% - 60px);
+    background-color: var(--section-background);
+    z-index: -2;
+}
+.members .box::after{
+    width: 0;
+    z-index: -1;
+    background-color: rgba(0, 0, 0, 0.2);
+}
+.members .box:hover::after{
+    width: calc(100% - 60px);
+}
+.members .box .top{
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+.members .box .socials{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    top: 50%;
+}
+.members .box .socials a{
+    color: var(--pColor);
+}
+.members .box .socials a:hover{
+    color: var(--main-color);
+}
+.members .container .box img{
+    width: calc(100% - 60px);
+    border-radius: 15px;
+}
+.members .box:hover img{
+    filter: grayscale(100%);
+}
+.members .box .text{
+    margin-left: 60px;
+}
+.members .box .text h2{
+    color: var(--main-color);
+    margin-bottom: 5px;
+}
+.members .box:hover .text h2{
+color: var(--pColor);
+}
+
+.members .box .text p{
+    color: var(--pColor);
+    margin-bottom: 5px;
+}
+/* End members */
+/* Start services */
+.services{
+    padding: var(--main-padding-top) 0 var(--main-padding-bottom);
+    position: relative;
+    background-color: var(--section-background);
+}
+.services .container{
+    display: grid;
+    grid-template-columns: repeat(auto-fill,minmax(300px,1fr));
+    gap: 40px;
+}
+.services .container .box{
+    background-color: white;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(114, 113, 113,0.6);
+    transition: all var(--main-transition);
+    position: relative;
+    overflow: hidden;
+}
+.services .box::after{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 0;
+    height: 5px;
+    background-color: var(--main-color);
+    transition: all 0.5s ease-in-out;
+}
+.services .container .box:hover::after{
+    left: -50%;
+    width: 200%;
+}
+.services .container .box:hover{
+    transform: translateY(-10px);
+}
+.services .container .box i{
+    color: var(--section-background);
+    margin: 20px 0;
+}
+.services .box h3{
+    color: var(--main-color);
+    margin: 20px 0;
+    line-height: 1.7;
+}
+.services .box .details{
+    background-color: var(--section-background);
+    bottom: 0;
+    height: 50px;
+    text-align:right;
+    padding: 15px;
+    position: relative;
+}
+.services .box .details::before{
+    content: "0" counter(services);
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: var(--main-color);
+    color: white;
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    font-size: 24px;
+    font-weight: bold;
+    height: 100%;
+    width: 30%;
+}
+.services .box .details::after{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 25%;
+    width: 13%;
+    height: 100%;
+    background-color: rgb(158, 152, 152);
+    transform: skew(-15deg);
+}
+.services .box .details a{
+    color: var(--main-color);
+}
+/* End services */
 /* !Animations */
 @keyframes up-down{
     0%,100%{
