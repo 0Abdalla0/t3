@@ -569,6 +569,41 @@ header .main-nav > li:hover .mega-menu {
     color: white;
 }
 /* End features */
+/* Start testimonials */
+.test{
+    padding: var(--main-padding-top) 0 var(--main-padding-bottom);
+    position: relative;
+    background-color: var(--section-background);
+}
+.test .container{
+    display: grid;
+    grid-template-columns: repeat(auto-fill,minmax(300px,1fr));
+    gap: 40px;
+}
+.test .container .box{
+    position: relative;
+    background-color: white;
+    padding: 20px;
+}
+.test .box img{
+    position: absolute;
+    border: 10px solid var(--section-background);
+    width: 100px;
+    border-radius: 50%;
+    top: -40px;
+    right: -10px;
+}
+.test .box h2{
+    margin-bottom: 10px;
+}
+.test .box p{
+    line-height: 1.7;
+    margin: 10px 0;
+}
+.filled{
+    color: gold;
+}
+/* End testimonials */
 /* !Animations */
 @keyframes up-down{
     0%,100%{
